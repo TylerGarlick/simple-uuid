@@ -1,5 +1,5 @@
 {
-  "name": "simple-uuid",
+  "name": "simply-uuid",
   "version": "1.0.1",
   "description": "Simple UUID generation",
   "main": "index.js",
