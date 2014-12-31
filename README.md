@@ -27,7 +27,7 @@ var uuid = UUID.generate();
 **NPM**
 
 ```
-npm install simple-uuid --save
+npm install simply-uuid --save
 ```
 
 **In your code**
