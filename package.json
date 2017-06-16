@@ -4,7 +4,8 @@
   "description": "Simple UUID generation",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test"
+    "test": "mocha test",
+    "build": "babel src -d build --source-maps inline"
   },
   "repository": {
     "type": "git",
@@ -21,8 +22,31 @@
   },
   "homepage": "https://github.com/TylerGarlick/simple-uuid",
   "devDependencies": {
+    "ava": "^0.19.1",
+    "babel-cli": "^6.24.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-pundits": "^2.0.3",
+    "babel-register": "^6.24.1",
     "chai": "^1.10.0",
     "lodash": "^2.4.1",
     "mocha": "^2.1.0"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.test.js"
+    ],
+    "source": [
+      "**/*.{js,jsx}",
+      "!dist/**/*"
+    ],
+    "concurrency": 5,
+    "failFast": true,
+    "failWithoutAssertions": false,
+    "tap": true,
+    "powerAssert": false,
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
   }
 }
