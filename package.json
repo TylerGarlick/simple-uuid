@@ -1,11 +1,14 @@
 {
   "name": "simply-uuid",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Simple UUID generation",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test",
-    "build": "babel src -d build --source-maps inline"
+    "test": "ava test",
+    "clean": "trash build/**/*",
+    "build": "npm run clean && npm run build:node && npm run build:browser",
+    "build:node": "babel src -d build --source-maps inline",
+    "build:browser": "browserify src/index.js -t ./node_modules/babelify --outfile build/browser.js --require babel-polyfill"
   },
   "repository": {
     "type": "git",
@@ -21,15 +24,18 @@
     "url": "https://github.com/TylerGarlick/simple-uuid/issues"
   },
   "homepage": "https://github.com/TylerGarlick/simple-uuid",
+  "dependencies": {
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.5.2"
+  },
   "devDependencies": {
     "ava": "^0.19.1",
     "babel-cli": "^6.24.1",
-    "babel-polyfill": "^6.23.0",
     "babel-preset-pundits": "^2.0.3",
     "babel-register": "^6.24.1",
-    "chai": "^1.10.0",
-    "lodash": "^2.4.1",
-    "mocha": "^2.1.0"
+    "babelify": "^7.3.0",
+    "browserify": "^14.4.0",
+    "trash-cli": "^1.4.0"
   },
   "ava": {
     "files": [
@@ -45,8 +51,19 @@
     "tap": true,
     "powerAssert": false,
     "require": [
+      "babel-polyfill",
       "babel-register"
     ],
     "babel": "inherit"
-  }
+  },
+  "transform": [
+    [
+      "babelify",
+      {
+        "comments": false,
+        "sourceType": "module",
+        "entry": true
+      }
+    ]
+  ]
 }
