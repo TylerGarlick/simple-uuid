@@ -1,1 +1,2 @@
-module.exports = require('./lib/uuid-node');
+require('babel-polyfill');
+module.exports = require('./build');

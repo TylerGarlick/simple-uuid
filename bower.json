@@ -1,12 +1,12 @@
 {
   "name": "simple-uuid",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "homepage": "https://github.com/TylerGarlick/simple-uuid",
   "authors": [
     "Tyler Garlick <tjgarlick@gmail.com>"
   ],
   "description": "Simple UUID generation",
-  "main": "uuid.js",
+  "main": "build/browser.js",
   "moduleType": [
     "node"
   ],
