@@ -14,7 +14,7 @@ bower install simple-uuid --save
 **In your HTML**
 
 ```html
-    <script src="bower_components/simple-uuid/uuid.js"></script>
+    <script src="bower_components/simple-uuid/browser.js"></script>
 ```
 
 **In your code**
@@ -28,6 +28,12 @@ var uuid = UUID.generate();
 
 ```
 npm install simply-uuid --save
+```
+
+**Yarn**
+
+```
+yarn add simply-uuid --save
 ```
 
 **In your code**
